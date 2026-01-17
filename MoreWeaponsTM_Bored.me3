@@ -1,0 +1,12 @@
+profileVersion = "v1"
+
+savefile = "Bored.sl2"
+
+[[packages]] 
+id = "MoreWeaponsTM_Bored" 
+source = "MoreWeaponsTM" 
+
+
+[[supports]]
+game = "nr"
+
