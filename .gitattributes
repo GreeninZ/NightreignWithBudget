@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.shaderbdlebnd.dcx filter=lfs diff=lfs merge=lfs -text
+*.ffxbnd.dcx filter=lfs diff=lfs merge=lfs -text
