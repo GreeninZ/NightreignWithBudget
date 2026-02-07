@@ -850,7 +850,7 @@ end
 
 function IsStanceArts(arts_id)
     if arts_id == 10 or arts_id == 11 or arts_id == 14 or arts_id == 15 or arts_id == 21 
-	  or arts_id == 178 or arts_id == 100 or arts_id == 101 or arts_id == 102 or arts_id == 103 
+	or arts_id == 178 or arts_id == 100 or arts_id == 101 or arts_id == 102 or arts_id == 103 
 	  or arts_id == 104 or arts_id == 105 or arts_id == 106 or arts_id == 107 or arts_id == 108 or arts_id == 337 
 	  or arts_id == 25 or arts_id == 219 or arts_id == 239 or arts_id == 169 or arts_id == 260 or arts_id == 318 or arts_id == 278 or arts_id == 279 or arts_id == 26 or arts_id == 29 or arts_id == 32 or arts_id == 38 or arts_id == 335 or arts_id == 43 or arts_id == 42 then
         return TRUE
@@ -2182,46 +2182,50 @@ function GetAttackRequest(is_guard)
 			end
 		end
 		if is_both_right == TRUE then
-			if sp_kind == 627 or sp_kind == 249 or sp_kind == 635 or sp_kind == 637 or sp_kind == 639 or sp_kind == 640 then
-				if env(GetStamina) <= 0 then
-					return ATTACK_REQUEST_INVALID
-				else
-					if env(GetSpEffectID, 100421) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft2")
-					elseif env(GetSpEffectID, 100422) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft3")
-					elseif env(GetSpEffectID, 100423) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft4")
-					elseif env(GetSpEffectID, 100424) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft5")
-					elseif env(GetSpEffectID, 100002) == TRUE then
-						ExecEventAllBody("W_AttackBothLeftDash")
-					elseif env(GetSpEffectID, 100360) == TRUE then
-						ExecEventAllBody("W_AttackDualRolling")
+			if env(GetSpEffectID, 140) == FALSE and env(GetSpEffectID, 145) == FALSE then
+				if sp_kind == 627 or sp_kind == 249 or sp_kind == 635 or sp_kind == 637 or sp_kind == 639 or sp_kind == 640 then
+					if env(GetStamina) <= 0 then
+						return ATTACK_REQUEST_INVALID
 					else
-						ExecEventAllBody("W_AttackBothLeft1")
+						if env(GetSpEffectID, 100421) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft2")
+						elseif env(GetSpEffectID, 100422) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft3")
+						elseif env(GetSpEffectID, 100423) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft4")
+						elseif env(GetSpEffectID, 100424) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft5")
+						elseif env(GetSpEffectID, 100002) == TRUE then
+							ExecEventAllBody("W_AttackBothLeftDash")
+						elseif env(GetSpEffectID, 100360) == TRUE then
+							ExecEventAllBody("W_AttackDualRolling")
+						else
+							ExecEventAllBody("W_AttackBothLeft1")
+						end
 					end
 				end
 			end
 		elseif style == HAND_LEFT_BOTH then
 			if sp_kind == 627 or sp_kind == 249 or sp_kind == 635 or sp_kind == 637 or sp_kind == 639 or sp_kind == 640 then
-				if env(GetStamina) <= 0 then
-					return ATTACK_REQUEST_INVALID
-				else
-					if env(GetSpEffectID, 100421) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft2")
-					elseif env(GetSpEffectID, 100422) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft3")
-					elseif env(GetSpEffectID, 100423) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft4")
-					elseif env(GetSpEffectID, 100424) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft5")
-					elseif env(GetSpEffectID, 100002) == TRUE then
-						ExecEventAllBody("W_AttackBothLeftDash")
-					elseif env(GetSpEffectID, 100360) == TRUE then
-						ExecEventAllBody("W_AttackBothLeft1")
+				if env(GetSpEffectID, 140) == FALSE and env(GetSpEffectID, 145) == FALSE then
+					if env(GetStamina) <= 0 then
+						return ATTACK_REQUEST_INVALID
 					else
-						ExecEventAllBody("W_AttackBothLeft1")
+						if env(GetSpEffectID, 100421) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft2")
+						elseif env(GetSpEffectID, 100422) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft3")
+						elseif env(GetSpEffectID, 100423) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft4")
+						elseif env(GetSpEffectID, 100424) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft5")
+						elseif env(GetSpEffectID, 100002) == TRUE then
+							ExecEventAllBody("W_AttackBothLeftDash")
+						elseif env(GetSpEffectID, 100360) == TRUE then
+							ExecEventAllBody("W_AttackBothLeft1")
+						else
+							ExecEventAllBody("W_AttackBothLeft1")
+						end
 					end
 				end
 			end
@@ -2552,6 +2556,12 @@ function ExecAttack(r1, r2, l1, l2, b1, b2, is_guard, blend_type, artsr1, artsr2
 				end
 			end
         end
+		if c_SwordArtsID == 45 then
+			if env(GetSpEffectID, 100050) == TRUE then
+				ExecEventAllBody("W_SwordArtsOneShotComboEnd")
+				r1 = "W_SwordArtsOneShotComboEnd"
+			end
+        end
 		if c_SwordArtsID == 318 then
 			if env(GetSpEffectID, 100050) == TRUE then
 				r1 = "W_SwordArtsOneShotComboEnd"
@@ -2622,6 +2632,18 @@ function ExecAttack(r1, r2, l1, l2, b1, b2, is_guard, blend_type, artsr1, artsr2
 			if env(GetSpEffectID, 100051) == TRUE then
 				ExecEventAllBody("W_SwordArtsOneShotComboEnd_2")
 				r2 = "W_SwordArtsOneShotComboEnd_2"
+			end
+        end
+		if c_SwordArtsID == 45 then
+			if env(GetSpEffectID, 100051) == TRUE then
+				ExecEventAllBody("W_SwordArtsOneShotComboEnd_2")
+				r2 = "W_SwordArtsOneShotComboEnd_2"
+			end
+        end
+		if c_SwordArtsID == 46 then
+			if env(GetSpEffectID, 100051) == TRUE then
+				ExecEventAllBody("W_SwordArtsOneShotComboEnd")
+				r2 = "W_SwordArtsOneShotComboEnd"
 			end
         end
 		if c_SwordArtsID == 32 then
@@ -2736,6 +2758,12 @@ function ExecAttack(r1, r2, l1, l2, b1, b2, is_guard, blend_type, artsr1, artsr2
 				b1 = "W_SwordArtsOneShotComboEnd"
 			end
         end
+		if c_SwordArtsID == 45 then
+			if env(GetSpEffectID, 100050) == TRUE then
+				ExecEventAllBody("W_SwordArtsOneShotComboEnd")
+				b1 = "W_SwordArtsOneShotComboEnd"
+			end
+        end
 		if c_SwordArtsID == 38 then
 			if env(GetFP) >= 8 then
 				if env(GetSpEffectID, 100050) == TRUE then
@@ -2830,6 +2858,18 @@ function ExecAttack(r1, r2, l1, l2, b1, b2, is_guard, blend_type, artsr1, artsr2
 			if env(GetSpEffectID, 100051) == TRUE then
 				ExecEventAllBody("W_SwordArtsOneShotComboEnd_2")
 				b2 = "W_SwordArtsOneShotComboEnd_2"
+			end
+        end
+		if c_SwordArtsID == 45 then
+			if env(GetSpEffectID, 100051) == TRUE then
+				ExecEventAllBody("W_SwordArtsOneShotComboEnd_2")
+				b2 = "W_SwordArtsOneShotComboEnd_2"
+			end
+        end
+		if c_SwordArtsID == 46 then
+			if env(GetSpEffectID, 100051) == TRUE then
+				ExecEventAllBody("W_SwordArtsOneShotComboEnd")
+				b2 = "W_SwordArtsOneShotComboEnd"
 			end
         end
 		if c_SwordArtsID == 313 and env(GetSpEffectID, 100050) == TRUE then
@@ -3124,6 +3164,8 @@ function ExecAttack(r1, r2, l1, l2, b1, b2, is_guard, blend_type, artsr1, artsr2
             arts_idx = 8
 		elseif arts_cat == 53 then
 			arts_idx = 3
+		elseif c_SwordArtsID == 257 and wep_cat == 24 then
+			arts_idx = 4
 		elseif c_SwordArtsID == 328 and env(GetSpEffectID, 19875) == TRUE and env(GetSpEffectID, 19874) == TRUE and GetVariable("IsEnoughArtPointsL2") == 0 then
             arts_idx = 4
         elseif c_SwordArtsID == 328 and env(GetSpEffectID, 19874) == TRUE and env(GetSpEffectID, 19875) == FALSE and GetVariable("IsEnoughArtPointsL2") == 0 then
@@ -4005,7 +4047,7 @@ function GetDualAttackMaxNumber(hand)
     local max_num = 1
     if kind == WEAPON_CATEGORY_EXTRALARGE_SWORD or kind == WEAPON_CATEGORY_EXTRALARGE_AXHAMMER or kind == WEAPON_CATEGORY_LARGE_SPEAR or kind == WEAPON_CATEGORY_LARGE_SWORD or kind == WEAPON_CATEGORY_LARGE_AX or kind == WEAPON_CATEGORY_LARGE_HAMMER or kind == WEAPON_CATEGORY_SPEAR or kind == WEAPON_CATEGORY_HALBERD or kind == WEAPON_CATEGORY_LARGE_CURVEDSWORD or kind == WEAPON_CATEGORY_LARGE_SCYTHE or kind == WEAPON_CATEGORY_WHIP or kind == 61 then
         max_num = 3
-    elseif kind == WEAPON_CATEGORY_STRAIGHT_SWORD or kind == WEAPON_CATEGORY_TWINBLADE or kind == WEAPON_CATEGORY_KATANA or kind == WEAPON_CATEGORY_AX or kind == WEAPON_CATEGORY_HAMMER or kind == WEAPON_CATEGORY_FLAIL or kind == WEAPON_CATEGORY_LARGE_RAPIER or kind == WEAPON_CATEGORY_SHORT_SWORD or kind == WEAPON_CATEGORY_RAPIER then
+    elseif kind == WEAPON_CATEGORY_TWINBLADE or kind == WEAPON_CATEGORY_KATANA or kind == WEAPON_CATEGORY_AX or kind == WEAPON_CATEGORY_HAMMER or kind == WEAPON_CATEGORY_FLAIL or kind == WEAPON_CATEGORY_LARGE_RAPIER or kind == WEAPON_CATEGORY_SHORT_SWORD or kind == WEAPON_CATEGORY_RAPIER then
         max_num = 4
     elseif kind == WEAPON_CATEGORY_CLAW or kind == WEAPON_CATEGORY_FIST or kind == 58 then
         max_num = 6
@@ -4022,6 +4064,14 @@ function GetDualAttackMaxNumber(hand)
 		else
 			max_num = 4
 		end
+	elseif kind == WEAPON_CATEGORY_STRAIGHT_SWORD then
+		if sp_kind == 640 then
+			max_num = 3
+		else
+			max_num = 4
+		end
+	elseif kind == 55 then
+		max_num = 6
     end
     return max_num
 end
@@ -4104,7 +4154,11 @@ function IsEnableDualWielding()
             return HAND_RIGHT
         end
     elseif rightKind == WEAPON_CATEGORY_EXTRALARGE_SWORD then
-		if leftKind == WEAPON_CATEGORY_EXTRALARGE_SWORD then
+		if rightSpecialKind == 635 then
+			if leftKind == WEAPON_CATEGORY_SHORT_SWORD then
+				return HAND_RIGHT
+			end
+		elseif leftKind == WEAPON_CATEGORY_EXTRALARGE_SWORD and rightSpecialKind ~= 635 then
             return HAND_RIGHT
         end
     elseif rightKind == WEAPON_CATEGORY_RAPIER then
@@ -4149,6 +4203,10 @@ function IsEnableDualWielding()
         end
     elseif rightKind == WEAPON_CATEGORY_SPEAR then
         if leftKind == WEAPON_CATEGORY_SPEAR then
+            return HAND_RIGHT
+        end
+	elseif rightKind == 55 then
+        if leftKind == 55 then
             return HAND_RIGHT
         end
 	elseif rightKind == 58 then
@@ -7730,7 +7788,7 @@ function ExecFallAttack()
             SetVariable("JumpAttackForm", 2)
             SetVariable("JumpAttackFormRequest", 1)
         elseif env(ActionRequest, ACTION_ARM_L1) == TRUE then
-            if IsEnableDualWielding() ~= HAND_RIGHT then
+            if IsEnableDualWielding() == HAND_RIGHT then
                 return FALSE
             end
             SetVariable("JumpAttackForm", 3)
@@ -12070,7 +12128,8 @@ function AttackDualLight1_onUpdate()
         l1 = "W_AttackLeftLight1"
     end
     local isEnableDualWielding = IsEnableDualWielding()
-    if isEnableDualWielding == INVALID then
+	local sp_kind = env(GetEquipWeaponSpecialCategoryNumber, HAND_RIGHT)
+    if isEnableDualWielding == INVALID and sp_kind ~= 640 then
         l1 = "W_AttackLeftLight1"
 	end
     if AttackCommonFunction("W_AttackRightLight1", "W_AttackRightHeavy1Start", l1, "W_AttackLeftHeavy1", "W_AttackBothLight1", "W_AttackBothHeavy1Start", FALSE, TRUE, 1) == TRUE then
@@ -18981,6 +19040,8 @@ function MagicLoopRight_Upper_onUpdate()
             local magic_index = env(GetMagicAnimType)
             if magic_index == MAGIC_REQUEST_EX_LARGE_ARROW then
                 ExecEventHalfBlend(Event_MagicFireRightCancel2, blend_type)
+			elseif env(GetSpEffectID, 100612) == TRUE then
+				ExecEventHalfBlend(Event_MagicFireRight2, blend_type)
             else
                 ExecEventHalfBlend(Event_MagicFireRightCancel, blend_type)
             end
@@ -18991,6 +19052,8 @@ function MagicLoopRight_Upper_onUpdate()
             local magic_index = env(GetMagicAnimType)
             if magic_index == MAGIC_REQUEST_EX_LARGE_ARROW then
                 ExecEventHalfBlend(Event_MagicFireRightCancel2, blend_type)
+			elseif env(GetSpEffectID, 100612) == TRUE then
+				ExecEventHalfBlend(Event_MagicFireRight2, blend_type)
             else
                 ExecEventHalfBlend(Event_MagicFireRightCancel, blend_type)
             end
@@ -19041,6 +19104,20 @@ function MagicFireRight_Upper_onUpdate()
             return
         end
     elseif magicslot == MAGIC_SLOT_CREATE and env(GetSpEffectID, 100610) == TRUE and env(ActionDurationAlternate, ACTION_ARM_L2) <= 0 and env(ActionDuration, ACTION_ARM_SKILL) <= 0 then
+        ExecEventHalfBlend(Event_MagicFireRightCancel, blend_type)
+        return
+    end
+	if magicslot == MAGIC_SLOT_FIRST then
+        if env(GetSpEffectID, 100611) == TRUE and (env(ActionDuration, ACTION_ARM_R1) <= 0 or env(IsMagicUseable, wep_hand, 1) == FALSE) then
+            ExecEventHalfBlend(Event_MagicFireRightCancel, blend_type)
+            return
+        end
+    elseif magicslot == MAGIC_SLOT_SECOND then
+        if env(GetSpEffectID, 100611) == TRUE and (env(ActionDuration, ACTION_ARM_R2) <= 0 or env(IsMagicUseable, wep_hand, 1) == FALSE) then
+            ExecEventHalfBlend(Event_MagicFireRightCancel, blend_type)
+            return
+        end
+    elseif magicslot == MAGIC_SLOT_CREATE and env(GetSpEffectID, 100611) == TRUE and env(ActionDurationAlternate, ACTION_ARM_L2) <= 0 and env(ActionDuration, ACTION_ARM_SKILL) <= 0 then
         ExecEventHalfBlend(Event_MagicFireRightCancel, blend_type)
         return
     end
@@ -19135,6 +19212,8 @@ function MagicLoopLeft_Upper_onUpdate()
             local magic_index = env(GetMagicAnimType)
             if magic_index == MAGIC_REQUEST_EX_LARGE_ARROW then
                 ExecEventHalfBlend(Event_MagicFireLeftCancel2, blend_type)
+			elseif env(GetSpEffectID, 100612) == TRUE then
+				ExecEventHalfBlend(Event_MagicFireLeft2, blend_type)
             else
                 ExecEventHalfBlend(Event_MagicFireLeftCancel, blend_type)
             end
@@ -19144,6 +19223,8 @@ function MagicLoopLeft_Upper_onUpdate()
         local magic_index = env(GetMagicAnimType)
         if magic_index == MAGIC_REQUEST_EX_LARGE_ARROW then
             ExecEventHalfBlend(Event_MagicFireLeftCancel2, blend_type)
+		elseif env(GetSpEffectID, 100612) == TRUE then
+				ExecEventHalfBlend(Event_MagicFireLeft2, blend_type)
         else
             ExecEventHalfBlend(Event_MagicFireLeftCancel, blend_type)
         end
@@ -19277,6 +19358,15 @@ function MagicFireLeft_Upper_onUpdate()
             return
         end
     elseif magicslot == MAGIC_SLOT_SECOND and env(GetSpEffectID, 100610) == TRUE and (env(ActionDuration, ACTION_ARM_L2) <= 0 or env(IsMagicUseable, HAND_LEFT, 1) == FALSE) then
+        ExecEventHalfBlend(Event_MagicFireLeftCancel, blend_type)
+        return
+    end
+	if magicslot == MAGIC_SLOT_FIRST then
+        if env(GetSpEffectID, 100611) == TRUE and (env(ActionDuration, ACTION_ARM_L1) <= 0 or env(IsMagicUseable, HAND_LEFT, 1) == FALSE) then
+            ExecEventHalfBlend(Event_MagicFireLeftCancel, blend_type)
+            return
+        end
+    elseif magicslot == MAGIC_SLOT_SECOND and env(GetSpEffectID, 100611) == TRUE and (env(ActionDuration, ACTION_ARM_L2) <= 0 or env(IsMagicUseable, HAND_LEFT, 1) == FALSE) then
         ExecEventHalfBlend(Event_MagicFireLeftCancel, blend_type)
         return
     end
@@ -22561,13 +22651,16 @@ function Update()
     if IsDemonSwordMode() == TRUE then
         BanSprint()
     end
+	if env(GetSpEffectID, 100067) == TRUE then
+		act(SetIsPreciseShootingPossible)
+	end
     ExecChangeDejavuBlend()
     ExecDejavu()
 	ExecChangeTranceBlend()
 	ExecTrance()
 	ExecTranceEnd()
     SetLadyComobo()
-	RKSBuff()
+	DS3Dual()
 	-- Favor of the Great Hollow
 	ExecUltCharge()
 	-- Recluse's Lightning Auto-Parry Magic Cocktail
@@ -22601,6 +22694,9 @@ function Update()
         act(AddSpEffect, 30107)
         act(AddSpEffect, 30108)
     end
+	if env(GetSpEffectID, 100068) == TRUE then -- Harald CGS cut to recovery 
+		ExecEventAllBody("W_SwordArtsOneShotShieldBoth")
+	end
     if GetVariable("TimeActEditor_07") == 1 then
         SetVariable("AddFookShotBlendSelector", 1)
     end
@@ -22715,6 +22811,22 @@ function Update()
     end
     g_FrameCount = g_FrameCount + 1
 end
+
+function DS3Dual()
+	local r_sp_kind = env(GetEquipWeaponSpecialCategoryNumber, HAND_RIGHT)
+	local b_sp_kind = env(GetEquipWeaponSpecialCategoryNumber, HAND_RIGHT_BOTH)
+	local bl_sp_kind = env(GetEquipWeaponSpecialCategoryNumber, HAND_LEFT)
+	if r_sp_kind == 640 and c_Style ~= HAND_RIGHT_BOTH then
+		act(AddSpEffect, 100065)
+		act(ClearSpEffect, 100066)
+	elseif b_sp_kind == 640 then
+		act(AddSpEffect, 100066)
+		act(ClearSpEffect, 100065)
+	elseif bl_sp_kind == 640 then
+		act(AddSpEffect, 100066)
+	end
+end
+
 heroFootOffsetTables = {
     -- Wylder
     [HERO_BALANCE] = {
@@ -27286,7 +27398,7 @@ function JumpCommonFunction(jump_type)
             return TRUE
         elseif env(ActionRequest, ACTION_ARM_L1) == TRUE and IsEnableDualWielding() == HAND_RIGHT then
 			if c_Style == HAND_RIGHT_BOTH then
-				if rightSpecialKind == 635 or rightSpecialKind == 249 or rightSpecialKind == 637 then
+				if rightSpecialKind == 635 or rightSpecialKind == 249 or rightSpecialKind == 637 or rightSpecialKind == 640 then
 					return FALSE
 				end
 			else
@@ -27298,7 +27410,7 @@ function JumpCommonFunction(jump_type)
 				SetAIActionState()
 				return TRUE
 			end
-        end
+		end
     elseif env(GetSpEffectID, 140) == FALSE and GetVariable("JumpAttack_Land") == 0 and GetVariable("JumpAttackForm") == 0 then
         SetVariable("JumpAttack_Land", 0)
         if env(ActionRequest, ACTION_ARM_R1) == TRUE or is_arrow == TRUE and env(ActionRequest, ACTION_ARM_R2) == TRUE then
@@ -27329,7 +27441,7 @@ function JumpCommonFunction(jump_type)
             return TRUE
         elseif env(ActionRequest, ACTION_ARM_L1) == TRUE and IsEnableDualWielding() == HAND_RIGHT then
 			if c_Style == HAND_RIGHT_BOTH then
-				if rightSpecialKind == 635 or rightSpecialKind == 249 or rightSpecialKind == 637 then
+				if rightSpecialKind == 635 or rightSpecialKind == 249 or rightSpecialKind == 637 or rightSpecialKind == 640 then
 					return FALSE
 				end
 			else
@@ -29609,12 +29721,16 @@ SWORD_ART_DIFF_CAT_POLEARM_LARGE_SHIELD = 9
 -- 20-59: Weapon Category
 SwordArtsCategory = {
     [0] = {SWORD_ART_DIFF_CAT_DEFAULT},
+	[285] = {SWORD_ART_DIFF_CAT_DEFAULT},
+	[45] = {SWORD_ART_DIFF_CAT_DEFAULT},
+	[46] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [1] = {SWORD_ART_DIFF_CAT_DEFAULT, SWORD_ART_DIFF_CAT_LARGE_WEAPON, SWORD_ART_DIFF_CAT_POLEARM, WEAPON_CATEGORY_FIST},
     [2] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [3] = {SWORD_ART_DIFF_CAT_DEFAULT, SWORD_ART_DIFF_CAT_LARGE_WEAPON, SWORD_ART_DIFF_CAT_POLEARM, WEAPON_CATEGORY_TWINBLADE},
     [4] = {SWORD_ART_DIFF_CAT_DEFAULT, SWORD_ART_DIFF_CAT_LARGE_WEAPON, SWORD_ART_DIFF_CAT_POLEARM},
     [5] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [6] = {SWORD_ART_DIFF_CAT_DEFAULT},
+	[33] = {SWORD_ART_DIFF_CAT_DEFAULT},
 	[41] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [7] = {SWORD_ART_DIFF_CAT_DEFAULT, SWORD_ART_DIFF_CAT_LARGE_WEAPON, SWORD_ART_DIFF_CAT_POLEARM},
     [8] = {SWORD_ART_DIFF_CAT_DEFAULT, SWORD_ART_DIFF_CAT_LARGE_WEAPON, SWORD_ART_DIFF_CAT_POLEARM},
@@ -29687,6 +29803,7 @@ SwordArtsCategory = {
     [99] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [100] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [101] = {SWORD_ART_DIFF_CAT_DEFAULT},
+	[337] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [102] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [103] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [108] = {SWORD_ART_DIFF_CAT_DEFAULT},
@@ -29728,6 +29845,7 @@ SwordArtsCategory = {
     [167] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [168] = {SWORD_ART_DIFF_CAT_DEFAULT},
     [196] = {SWORD_ART_DIFF_CAT_DEFAULT, SWORD_ART_DIFF_CAT_LARGE_WEAPON, SWORD_ART_DIFF_CAT_POLEARM},
+	[257] = {SWORD_ART_DIFF_CAT_DEFAULT, WEAPON_CATEGORY_TWINBLADE},
 	[258] = {SWORD_ART_DIFF_CAT_DEFAULT},
 	[264] = {SWORD_ART_DIFF_CAT_DEFAULT},
 	[276] = {SWORD_ART_DIFF_CAT_DEFAULT},
@@ -29736,6 +29854,8 @@ SwordArtsCategory = {
 	[262] = {SWORD_ART_DIFF_CAT_DEFAULT},
 	[270] = {SWORD_ART_DIFF_CAT_DEFAULT},
 	[313] = {SWORD_ART_DIFF_CAT_DEFAULT},
+	[281] = {SWORD_ART_DIFF_CAT_DEFAULT, 57},
+	[284] = {SWORD_ART_DIFF_CAT_DEFAULT, SWORD_ART_DIFF_CAT_LARGE_WEAPON, SWORD_ART_DIFF_CAT_POLEARM},
 	[399] = {SWORD_ART_DIFF_CAT_DEFAULT}
 }
 
@@ -29843,18 +29963,29 @@ end
 -- FALSE: Weapon was used to perform the sword art, no retrieval animation.
 SwordArtPutOppositeWeapon = {
     [0] = {TRUE, FALSE, TRUE},
+	[281] = {TRUE, FALSE, TRUE},
+	[285] = {TRUE, FALSE, TRUE},
+	[284] = {TRUE, FALSE, TRUE},
+	[366] = {TRUE, FALSE, TRUE},
+	[317] = {TRUE, FALSE, TRUE},
+	[319] = {FALSE, FALSE, TRUE},
+	[257] = {FALSE, FALSE, TRUE},
+	[320] = {TRUE, FALSE, TRUE},
     [1] = {TRUE, FALSE, TRUE},
     [2] = {TRUE, FALSE, TRUE},
     [3] = {TRUE, FALSE, TRUE},
     [5] = {TRUE, FALSE, TRUE},
     [6] = {TRUE, FALSE, TRUE},
+	[33] = {FALSE, FALSE, TRUE},
 	[41] = {TRUE, FALSE, TRUE},
+	[46] = {FALSE, FALSE, FALSE},
 	[35] = {TRUE, FALSE, TRUE},
     [7] = {TRUE, FALSE, TRUE},
     [8] = {FALSE, FALSE, TRUE},
     [9] = {FALSE, FALSE, TRUE},
     [10] = {TRUE, FALSE, TRUE},
     [11] = {TRUE, FALSE, TRUE},
+	[45] = {TRUE, FALSE, TRUE},
     [12] = {TRUE, FALSE, TRUE},
     [13] = {TRUE, FALSE, TRUE},
     [14] = {TRUE, FALSE, TRUE},
@@ -29914,6 +30045,7 @@ SwordArtPutOppositeWeapon = {
     [99] = {FALSE, FALSE, FALSE},
     [100] = {FALSE, FALSE, FALSE},
     [101] = {FALSE, FALSE, FALSE},
+	[337] = {FALSE, FALSE, FALSE},
     [102] = {FALSE, FALSE, FALSE},
     [103] = {FALSE, FALSE, FALSE},
     [105] = {FALSE, FALSE, FALSE},
