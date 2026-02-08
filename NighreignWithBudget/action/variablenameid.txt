@@ -1,5 +1,3 @@
-#BOM付きUTF8で保存された場合に一行目が解析不能になるDLPropertiesの不具合に備えてコメントアウト
-
 Num  = 755
 1    = "AddBlend00"
 2    = "AddBlend01"
@@ -756,3 +754,4 @@ Num  = 755
 753  = "BlendWeakPart_SubSA02"
 754  = "BlendWeakPart_SubSA03"
 755  = "IsAutoRevival"
+    

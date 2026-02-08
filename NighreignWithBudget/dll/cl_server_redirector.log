@@ -1,0 +1,60 @@
+﻿2026-01-19 01:53:11.063 INFO  [146080] [Bootstrap@49] cl_server_redirector
+2026-01-19 01:53:11.064 INFO  [146080] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-19 01:53:11.064 INFO  [146080] [Config::Load@99] Alt Save Active!
+2026-01-19 01:53:11.064 INFO  [146080] [Config::Load@106] Custom Shard: 
+2026-01-19 01:53:11.085 INFO  [146080] [Bootstrap@66] Loaded
+2026-01-19 02:20:15.487 INFO  [146444] [Bootstrap@49] cl_server_redirector
+2026-01-19 02:20:15.487 INFO  [146444] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-19 02:20:15.488 INFO  [146444] [Config::Load@99] Alt Save Active!
+2026-01-19 02:20:15.488 INFO  [146444] [Config::Load@106] Custom Shard: 
+2026-01-19 02:20:15.508 INFO  [146444] [Bootstrap@66] Loaded
+2026-01-19 19:35:18.924 INFO  [171420] [Bootstrap@49] cl_server_redirector
+2026-01-19 19:35:18.932 INFO  [171420] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-19 19:35:18.932 INFO  [171420] [Config::Load@99] Alt Save Active!
+2026-01-19 19:35:18.932 INFO  [171420] [Config::Load@106] Custom Shard: 
+2026-01-19 19:35:18.952 INFO  [171420] [Bootstrap@66] Loaded
+2026-01-19 20:42:50.227 INFO  [178776] [Bootstrap@49] cl_server_redirector
+2026-01-19 20:42:50.228 INFO  [178776] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-19 20:42:50.228 INFO  [178776] [Config::Load@99] Alt Save Active!
+2026-01-19 20:42:50.228 INFO  [178776] [Config::Load@106] Custom Shard: 
+2026-01-19 20:42:50.249 INFO  [178776] [Bootstrap@66] Loaded
+2026-01-19 20:50:34.267 INFO  [175744] [Bootstrap@49] cl_server_redirector
+2026-01-19 20:50:34.267 INFO  [175744] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-19 20:50:34.267 INFO  [175744] [Config::Load@99] Alt Save Active!
+2026-01-19 20:50:34.267 INFO  [175744] [Config::Load@106] Custom Shard: 
+2026-01-19 20:50:34.289 INFO  [175744] [Bootstrap@66] Loaded
+2026-01-20 01:45:19.677 INFO  [44536] [Bootstrap@49] cl_server_redirector
+2026-01-20 01:45:19.685 INFO  [44536] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-20 01:45:19.685 INFO  [44536] [Config::Load@99] Alt Save Active!
+2026-01-20 01:45:19.685 INFO  [44536] [Config::Load@106] Custom Shard: 
+2026-01-20 01:45:19.706 INFO  [44536] [Bootstrap@66] Loaded
+2026-01-28 20:29:29.439 INFO  [143108] [Bootstrap@49] cl_server_redirector
+2026-01-28 20:29:29.447 INFO  [143108] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-28 20:29:29.447 INFO  [143108] [Config::Load@99] Alt Save Active!
+2026-01-28 20:29:29.447 INFO  [143108] [Config::Load@106] Custom Shard: 
+2026-01-28 20:29:29.466 INFO  [143108] [Bootstrap@66] Loaded
+2026-01-28 20:42:53.203 INFO  [150032] [Bootstrap@49] cl_server_redirector
+2026-01-28 20:42:53.204 INFO  [150032] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-28 20:42:53.204 INFO  [150032] [Config::Load@99] Alt Save Active!
+2026-01-28 20:42:53.204 INFO  [150032] [Config::Load@106] Custom Shard: 
+2026-01-28 20:42:53.224 INFO  [150032] [Bootstrap@66] Loaded
+2026-01-28 20:46:33.926 INFO  [147932] [Bootstrap@49] cl_server_redirector
+2026-01-28 20:46:33.927 INFO  [147932] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-28 20:46:33.927 INFO  [147932] [Config::Load@99] Alt Save Active!
+2026-01-28 20:46:33.927 INFO  [147932] [Config::Load@106] Custom Shard: 
+2026-01-28 20:46:33.948 INFO  [147932] [Bootstrap@66] Loaded
+2026-01-28 20:50:09.042 INFO  [131756] [Bootstrap@49] cl_server_redirector
+2026-01-28 20:50:09.042 INFO  [131756] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-28 20:50:09.042 INFO  [131756] [Config::Load@99] Alt Save Active!
+2026-01-28 20:50:09.042 INFO  [131756] [Config::Load@106] Custom Shard: 
+2026-01-28 20:50:09.062 INFO  [131756] [Bootstrap@66] Loaded
+2026-01-28 20:55:51.557 INFO  [140284] [Bootstrap@49] cl_server_redirector
+2026-01-28 20:55:51.557 INFO  [140284] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-28 20:55:51.557 INFO  [140284] [Config::Load@99] Alt Save Active!
+2026-01-28 20:55:51.558 INFO  [140284] [Config::Load@106] Custom Shard: 
+2026-01-28 20:55:51.579 INFO  [140284] [Bootstrap@66] Loaded
+2026-01-28 21:10:06.801 INFO  [149160] [Bootstrap@49] cl_server_redirector
+2026-01-28 21:10:06.802 INFO  [149160] [Config::Load@79] Redirect URL: https://nightreign.fs-emu.net
+2026-01-28 21:10:06.802 INFO  [149160] [Config::Load@99] Alt Save Active!
+2026-01-28 21:10:06.802 INFO  [149160] [Config::Load@106] Custom Shard: 
+2026-01-28 21:10:06.823 INFO  [149160] [Bootstrap@66] Loaded
